@@ -71,9 +71,7 @@
                     <resourcePackage>com.logicache.api.resources</resourcePackage>
                     <modelPackage>com.logicache.api.domain</modelPackage>
                     <supportPackage>com.logicache.api.support</supportPackage>
-                    <configureTypesFor>
-                        <value>jackson</value>
-                    </configureTypesFor>
+                    <configureTypesFor>jackson</configureTypesFor>
                 </configuration>
 
                 <executions>
