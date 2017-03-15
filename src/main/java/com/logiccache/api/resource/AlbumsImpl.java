@@ -1,8 +1,8 @@
 package com.logiccache.api.resource;
 
-
-import com.logicache.api.domain.*;
-import com.logicache.api.resources.*;
+import com.logicache.api.domain.Album;
+import com.logicache.api.domain.AlbumImpl;
+import com.logicache.api.resources.Music;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
