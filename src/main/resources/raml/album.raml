@@ -1,49 +1,9 @@
-#%RAML 0.8
----
-title: Music API
-version: v1
-mediaType: application/json
+#%RAML 1.0 DataType
 
-schemas:
-  - album: !include album.json
-
-/albums:
-  description: "The Albums resource."
-  get:
-    description: "Returns a list of albums."
-    responses:
-      200:
-        body:
-          application/json:
-            example: |
-              [
-                { "id": 1, "title": "Harvest", "artist": "Neil Young", "released": "1972" },
-                { "id": 2, "title": "Blonde on Blonde", "artist": "Bob Dylan", "released": "1966" }
-              ]
-  post:
-    description: "Generate a new album."
-    body:
-      application/json:
-        schema: album
-        example: |
-          { "title": "Paris 1919", "artist": "John Cale", "released": "1973" }
-    responses:
-      201:
-        description: "Album created"
-      400:
-        description: "Can't create Album from provided entity"
-  /{id}:
-    uriParameters:
-      id:
-        type: integer
-    get:
-      description: "Return the album with given id."
-      responses:
-        200:
-          body:
-            application/json:
-              schema: album
-              example: |
-                 { "id": 2, "title": "Blonde on Blonde", "artist": "Bob Dylan", "released": "1966" }
-        404:
-          description: "Album with provided id not found"
+type: object
+displayName: Album
+properties:
+  id: integer
+  artist: string
+  title: string
+  released: string

@@ -1,0 +1,42 @@
+#%RAML 1.0
+---
+title: Music API
+baseUri: http://api.logiccache.co.uk/music
+version: v1
+
+types:
+    album:
+        schema: !include album.raml
+
+/music:
+  description: "The Albums resource."
+  get:
+    description:  "Returns a list of albums."
+    responses:
+      200:
+        body:
+          application/json:
+            type: album[]
+  post:
+    description: "Generate a new album."
+    body:
+      application/json:
+        type: album
+    responses:
+        201:
+          description: "Album created."
+        400:
+          description: "Can't create Album from provided entity."
+  /{id}:
+    uriParameters:
+      id:
+        type: integer
+    get:
+      description: "Return the album with given id."
+      responses:
+        200:
+          body:
+            application/json:
+              type: album
+        404:
+          description: "Album with provided id not found."
